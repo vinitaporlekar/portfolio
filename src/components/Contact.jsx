@@ -57,12 +57,8 @@ const Contact = ({ isVisible }) => {
       <footer className="py-8 px-6 border-t border-slate-800">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-400 text-sm">
-            © 2025 Vinita Porlekar. Built with React & Tailwind CSS.
+            © 2026 Vinita Porlekar. Built with React & Tailwind CSS.
           </p>
-          <div className="flex items-center gap-2 text-sm text-slate-400">
-            <Github className="w-4 h-4" />
-            <span>Ready for CI/CD integration</span>
-          </div>
         </div>
       </footer>
     </>
