@@ -1,79 +1,96 @@
-import React from 'react';
-import { Mail, ChevronRight, GraduationCap } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Download, Mail } from 'lucide-react';
+// Correct path after you move the image to src/assets/
+import heroBg from '../assets/image_d31f46.jpg'; 
 
 const Hero = ({ isVisible, setShowResumeModal }) => {
+  const [text, setText] = useState('');
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  
+  const roles = ["Product-Minded Technologist",
+   "Building software, products, and AI-driven solutions"
+  ];
+  const typingSpeed = isDeleting ? 50 : 150;
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const currentRole = roles[roleIndex];
+      if (!isDeleting) {
+        setText(currentRole.substring(0, text.length + 1));
+        if (text === currentRole) {
+          setTimeout(() => setIsDeleting(true), 2000);
+        }
+      } else {
+        setText(currentRole.substring(0, text.length - 1));
+        if (text === '') {
+          setIsDeleting(false);
+          setRoleIndex((prev) => (prev + 1) % roles.length);
+        }
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, roleIndex]);
+
   return (
-    <section className={`py-20 px-6 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="inline-block mb-4 px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full">
-              <span className="text-amber-400 text-sm font-semibold">Open to Opportunities</span>
-            </div>
-            
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Building Products at the{' '}
-              <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
-                Intersection of AI & UX
-              </span>
-            </h2>
-            
-            <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-              Product Manager with 5+ years of experience delivering AI-powered solutions that drive user engagement and business impact. Currently pursuing MS in Information Systems at Northeastern University.
-            </p>
-            
-            <div className="flex flex-wrap gap-4">
-              <button
-                onClick={() => setShowResumeModal(true)}
-                className="group px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg font-semibold hover:from-amber-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-amber-500/25 flex items-center gap-2"
-              >
-                View Resume
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-              
-              <a
-                href="mailto:porlekar.v@northeastern.edu"
-                className="px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2"
-              >
-                <Mail className="w-4 h-4" />
-                Get in Touch
-              </a>
-            </div>
+    <section id="home" className="relative min-h-screen flex items-center px-6 pt-20 overflow-hidden">
+      {/* Background Layer */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Soft overlay for readability */}
+        <div className="absolute inset-0 bg-white/75 backdrop-blur-[1px]"></div>
+      </div>
+
+      <div className={`relative z-10 max-w-6xl mx-auto w-full py-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="max-w-4xl">
+          <h1 className="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight text-slate-900 leading-[1.1]">
+            Hello! ✨ <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">
+              Vinita
+            </span> here
+          </h1>
+          
+          <div className="text-2xl md:text-4xl text-slate-600 mb-12 font-semibold tracking-tight h-12">
+           <span className="text-slate-900">{text}</span>
+            <span className="animate-pulse text-amber-500 ml-1">|</span>
           </div>
           
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-3xl blur-3xl" />
-            <div className="relative bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-8 shadow-2xl">
-              <div className="flex items-center gap-3 mb-6">
-                <GraduationCap className="w-6 h-6 text-amber-400" />
-                <h3 className="text-xl font-bold">Current Education</h3>
-              </div>
-              
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-lg font-semibold text-amber-400 mb-1">
-                    Master of Science in Information Systems
-                  </h4>
-                  <p className="text-slate-300 font-medium">Northeastern University</p>
-                  <p className="text-slate-400 text-sm">Arlington, VA | Aug 2025 – Expected May 2027</p>
-                </div>
-                
-                <div className="pt-4 border-t border-slate-700">
-                  <p className="text-sm text-slate-400 mb-2">Previous Education</p>
-                  <h4 className="text-base font-semibold text-slate-200 mb-1">
-                    Bachelor of Engineering, Computer Engineering
-                  </h4>
-                  <p className="text-slate-300 text-sm">University of Mumbai | May 2019</p>
-                </div>
-                
-                <div className="pt-4 border-t border-slate-700">
-                  <div className="inline-flex items-center gap-2 px-3 py-2 bg-green-500/10 border border-green-500/20 rounded-lg">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-green-400 text-sm font-medium">Authorized to work on F1 CPT</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="flex flex-wrap gap-4 mb-16">
+            <button
+              onClick={() => setShowResumeModal(true)}
+              className="px-8 py-4 bg-slate-900 hover:bg-black text-white rounded-full font-bold transition-all hover:scale-105 flex items-center gap-3 shadow-xl"
+            >
+              <Download className="w-5 h-5" />
+              Download CV
+            </button>
+            
+            <a
+              href="mailto:porlekar.v@northeastern.edu"
+              className="px-8 py-4 bg-white border-2 border-slate-100 hover:border-amber-400 text-slate-900 rounded-full font-bold transition-all hover:scale-105 flex items-center gap-3 shadow-sm"
+            >
+              <Mail className="w-5 h-5" />
+              Get in Touch
+            </a>
+          </div>
+          
+          {/* Highlighted F1 CPT Badge */}
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/90 border border-slate-200 rounded-2xl shadow-sm">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+            </span>
+            <span className="text-slate-700 text-sm md:text-base font-medium">
+              Authorized to work on <span className="text-slate-900 font-bold px-2 py-1 bg-amber-100 rounded-md">F1 CPT</span> 👩‍💻
+            </span>
           </div>
         </div>
       </div>

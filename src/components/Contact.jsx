@@ -1,27 +1,31 @@
 import React from 'react';
-import { Mail, Linkedin, ExternalLink, Github } from 'lucide-react';
+import { Mail, Linkedin, MapPin } from 'lucide-react';
 
 const Contact = ({ isVisible }) => {
   return (
-    <>
-      <section className={`py-20 px-6 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Let's Connect</h2>
-          <p className="text-xl text-slate-300 mb-12">
-            Interested in collaborating or learning more about my work? Feel free to reach out!
+    <section 
+      id="contact"
+      className={`py-20 px-6 bg-white transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+    >
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-slate-900">Get in Touch</h2>
+        
+        <div className="max-w-3xl">
+          <p className="text-lg text-slate-700 mb-12">
+            Thanks for stopping by, have a creative day! 🎨 I'm always open to discussing new opportunities, collaborations, or just having a chat about product management and AI/ML. Feel free to reach out!
           </p>
           
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="space-y-6 mb-16">
             <a
               href="mailto:porlekar.v@northeastern.edu"
-              className="group flex items-center justify-center gap-4 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-xl p-8 hover:border-amber-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10"
+              className="flex items-center gap-4 p-6 bg-slate-50 border border-slate-200 rounded-xl hover:border-amber-300 hover:shadow-md transition-all group"
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg flex items-center justify-center shadow-md">
                 <Mail className="w-6 h-6 text-white" />
               </div>
-              <div className="text-left">
-                <p className="text-sm text-slate-400 mb-1">Email</p>
-                <p className="text-slate-200 font-semibold group-hover:text-amber-400 transition-colors">
+              <div>
+                <p className="text-sm text-slate-600 mb-1">Email</p>
+                <p className="text-slate-900 font-medium group-hover:text-amber-600 transition-colors">
                   porlekar.v@northeastern.edu
                 </p>
               </div>
@@ -31,37 +35,43 @@ const Contact = ({ isVisible }) => {
               href="https://www.linkedin.com/in/vinitaporlekar/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-center gap-4 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-xl p-8 hover:border-amber-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10"
+              className="flex items-center gap-4 p-6 bg-slate-50 border border-slate-200 rounded-xl hover:border-amber-300 hover:shadow-md transition-all group"
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg flex items-center justify-center shadow-md">
                 <Linkedin className="w-6 h-6 text-white" />
               </div>
-              <div className="text-left">
-                <p className="text-sm text-slate-400 mb-1">LinkedIn</p>
-                <p className="text-slate-200 font-semibold group-hover:text-amber-400 transition-colors flex items-center gap-2">
-                  Connect with me
-                  <ExternalLink className="w-4 h-4" />
+              <div>
+                <p className="text-sm text-slate-600 mb-1">LinkedIn</p>
+                <p className="text-slate-900 font-medium group-hover:text-amber-600 transition-colors">
+                  linkedin.com/in/vinitaporlekar
                 </p>
               </div>
             </a>
+            
+            <div className="flex items-center gap-4 p-6 bg-slate-50 border border-slate-200 rounded-xl">
+              <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg flex items-center justify-center shadow-md">
+                <MapPin className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <p className="text-sm text-slate-600 mb-1">Location</p>
+                <p className="text-slate-900 font-medium">
+                  Sterling, VA - 20166
+                </p>
+              </div>
+            </div>
           </div>
           
-          <div className="pt-12 border-t border-slate-800">
-            <p className="text-slate-400 text-sm">
-              Sterling, VA - 20166 | Open to Software Engineering, AI/ML and Product Management Roles
+          <div className="pt-12 border-t border-slate-200">
+            <p className="text-slate-600 text-center">
+              © Vinita Porlekar. All rights reserved.
+            </p>
+            <p className="text-slate-500 text-sm text-center mt-2">
+              Made with ❤️ using React & Tailwind CSS
             </p>
           </div>
         </div>
-      </section>
-
-      <footer className="py-8 px-6 border-t border-slate-800">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-400 text-sm">
-            © 2026 Vinita Porlekar. Built with React & Tailwind CSS.
-          </p>
-        </div>
-      </footer>
-    </>
+      </div>
+    </section>
   );
 };
 

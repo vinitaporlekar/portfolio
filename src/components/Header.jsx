@@ -1,35 +1,44 @@
 import React from 'react';
 
-const Header = ({ activeSection, setActiveSection, isVisible }) => {
+const Header = ({ activeSection, setActiveSection, isVisible, scrollProgress = 0 }) => {
+  
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(id);
+    }
+  };
+
   return (
-    <header className={`py-8 px-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-      <div className="max-w-6xl mx-auto flex justify-between items-center">
-        <div className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center font-bold text-xl shadow-lg shadow-amber-500/25">
-            VP
-          </div>
-          <div>
-            <h1 className="text-xl font-bold tracking-tight">Vinita Porlekar</h1>
-            <p className="text-sm text-slate-400">Product Management & AI/ML</p>
-          </div>
-        </div>
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <button onClick={() => scrollToSection('home')} className="group transition-all">
+            <span className="text-3xl font-signature text-black tracking-tight"> 
+              Vinita Porlekar
+            </span>
+         
+        </button>
         
         <nav className="hidden md:flex gap-8">
-          {['About', 'Experience', 'Skills', 'Contact'].map((item) => (
+          {['home', 'about', 'experience', 'skills', 'projects', 'contact'].map((id) => (
             <button
-              key={item}
-              onClick={() => setActiveSection(item.toLowerCase())}
-              className={`text-sm font-medium transition-all duration-300 hover:text-amber-400 ${
-                activeSection === item.toLowerCase() 
-                  ? 'text-amber-400' 
-                  : 'text-slate-300'
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className={`text-sm font-semibold capitalize transition-all hover:text-amber-500 ${
+                activeSection === id ? 'text-white-600 scale-110' : 'text-slate-600'
               }`}
             >
-              {item}
+              {id}
             </button>
           ))}
         </nav>
       </div>
+      {/* Scroll Progress Bar */}
+      <div 
+        className="h-[2px] bg-amber-500 transition-all duration-150" 
+        style={{ width: `${scrollProgress}%` }} 
+      />
     </header>
   );
 };

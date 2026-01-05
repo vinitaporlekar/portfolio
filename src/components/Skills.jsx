@@ -1,32 +1,42 @@
 import React from 'react';
-import { Code } from 'lucide-react';
 
 const Skills = ({ isVisible }) => {
   const skills = {
-    "Development": "Strong Java & OOPs knowledge, All things Generative AI Integrations (Developer productivity to API integrations)",
-    "Product Management": "Product Vision & Strategy, User & Market Analysis, Road mapping, KPI Tracking, Stakeholder Communication",
+    "Programming Languages": "Python, R, C, C++, Java, JavaScript (ES6+)",
+    "Web Development": "React.js, Node.js, HTML5, CSS3, Tailwind CSS",
+    "Databases": "SQL, NoSQL, MySQL, PostgreSQL, MongoDB",
+    "Product Management": "Product Vision & Strategy, User & Market Analysis, Roadmapping, KPI Tracking",
     "Project Management": "Agile (Scrum, Kanban), Jira, Risk Mitigation, Sprint Planning",
-    "AI & Automation": "AI Chatbot Ideation, Workflow Automation, REST APIs, Postman",
-    "Tools": "Google Workspace (Documentation) & Figma (Prototyping)",
-    "Certifications": "AWS Cloud Practitioner & Certified SCRUM Master"
+    "AI & Machine Learning": "Pandas, NumPy, Scikit-learn, PyTorch, Chatbot Development",
+    "Data Visualization": "Tableau, PowerBI, Matplotlib",
+    "Tools & Platforms": "Git, Docker, AWS, Figma, Postman, Google Workspace",
+    "Certifications": "AWS Cloud Practitioner, Certified SCRUM Master"
   };
 
   return (
-    <section className={`py-20 px-6 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <section 
+      id="skills"
+      className={`py-20 px-6 bg-white transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+    >
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center gap-3 mb-12">
-          <Code className="w-8 h-8 text-amber-400" />
-          <h2 className="text-4xl font-bold">Core Skills</h2>
-        </div>
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">Skills</h2>
         
-        <div className="grid md:grid-cols-2 gap-6">
-          {Object.entries(skills).map(([category, description], index) => (
+        <p className="text-lg text-slate-700 mb-12 max-w-3xl">
+          Over the years, I've picked up professional skills through classrooms, team projects, and hands-on experience. Here's what I bring to the table:
+        </p>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {Object.entries(skills).map(([category, items]) => (
             <div
               key={category}
-              className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 hover:border-amber-500/30 transition-all duration-300"
+              className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-amber-300 hover:shadow-md transition-all"
             >
-              <h3 className="text-xl font-bold text-amber-400 mb-3">{category}</h3>
-              <p className="text-slate-300 leading-relaxed">{description}</p>
+              <h3 className="text-lg font-bold text-amber-600 mb-3">
+                {category}
+              </h3>
+              <p className="text-slate-700 text-sm leading-relaxed">
+                {items}
+              </p>
             </div>
           ))}
         </div>
