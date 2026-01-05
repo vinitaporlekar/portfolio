@@ -1,16 +1,14 @@
 import React from 'react';
 import { FileText, Download, ExternalLink } from 'lucide-react';
 
-const ResumeModal = ({ setShowResumeModal }) => {
-  const handleDownload = () => {
-    // Create a link to download the resume
-    const link = document.createElement('a');
-    link.href = '/Vinita_Porlekar_Resume.pdf'; // You'll need to place the PDF in your public folder
-    link.download = 'Vinita_Porlekar_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+const handleDownload = () => {
+  const link = document.createElement('a');
+  link.href = '/Vinita_Porlekar_Resume.pdf'; // This looks in the public folder
+  link.download = 'Vinita_Porlekar_Resume.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fadeIn">
