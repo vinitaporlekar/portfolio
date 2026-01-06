@@ -36,7 +36,6 @@ const Hero = ({ isVisible, setShowResumeModal }) => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center px-6 pt-20 overflow-hidden">
-      {/* Background Layer */}
       <div 
         className="absolute inset-0 z-0"
         style={{
@@ -46,25 +45,36 @@ const Hero = ({ isVisible, setShowResumeModal }) => {
           backgroundRepeat: 'no-repeat'
         }}
       >
-        {/* Soft overlay for readability */}
         <div className="absolute inset-0 bg-white/75 backdrop-blur-[1px]"></div>
       </div>
 
-      <div className={`relative z-10 max-w-6xl mx-auto w-full py-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className={`relative z-10 max-w-6xl mx-auto w-full py-20 transition-all duration-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl">
-          <h1 className="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight text-slate-900 leading-[1.1]">
-            Hello! ✨ <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 border border-slate-200 rounded-full shadow-sm mb-8">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+            </span>
+            <span className="text-slate-700 text-sm font-medium">
+              Authorized to work on <span className="text-slate-900 font-bold px-2 py-0.5 bg-amber-100/80 rounded-md">F1 CPT</span>
+            </span>
+          </div>
+
+          <h1 className="text-4xl md:text-6xl font-semibold mb-6 tracking-tight text-slate-800 leading-tight">
+            Hello! <span className="text-2xl">✨</span>
+            <br />
+            <span className="text-5xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-500">
               Vinita
-            </span> here
+            </span>{' '}
+            <span className="font-semibold">here</span>
           </h1>
-          
-          <div className="text-2xl md:text-4xl text-slate-600 mb-12 font-semibold tracking-tight h-12">
+
+          <div className="text-xl md:text-3xl text-slate-600 mb-12 font-semibold tracking-tight h-12">
            <span className="text-slate-900">{text}</span>
             <span className="animate-pulse text-amber-500 ml-1">|</span>
           </div>
           
-          <div className="flex flex-wrap gap-4 mb-16">
+          <div className="flex flex-wrap gap-4">
             <button
               onClick={() => setShowResumeModal(true)}
               className="px-8 py-4 bg-slate-900 hover:bg-black text-white rounded-full font-bold transition-all hover:scale-105 flex items-center gap-3 shadow-xl"
@@ -80,17 +90,6 @@ const Hero = ({ isVisible, setShowResumeModal }) => {
               <Mail className="w-5 h-5" />
               Get in Touch
             </a>
-          </div>
-          
-          {/* Highlighted F1 CPT Badge */}
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/90 border border-slate-200 rounded-2xl shadow-sm">
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-            </span>
-            <span className="text-slate-700 text-sm md:text-base font-medium">
-              Authorized to work on <span className="text-slate-900 font-bold px-2 py-1 bg-amber-100 rounded-md">F1 CPT</span> 👩‍💻
-            </span>
           </div>
         </div>
       </div>

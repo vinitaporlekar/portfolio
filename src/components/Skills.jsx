@@ -2,14 +2,12 @@ import React from 'react';
 
 const Skills = ({ isVisible }) => {
   const skills = {
-    "Programming Languages": "Python, R, C, C++, Java, JavaScript (ES6+)",
+    "Programming Languages": "Java, JavaScript (ES6+)",
     "Web Development": "React.js, Node.js, HTML5, CSS3, Tailwind CSS",
-    "Databases": "SQL, NoSQL, MySQL, PostgreSQL, MongoDB",
-    "Product Management": "Product Vision & Strategy, User & Market Analysis, Roadmapping, KPI Tracking",
+    "Product Management": "Product Strategy, User & Market Analysis, Roadmapping, KPI Tracking",
     "Project Management": "Agile (Scrum, Kanban), Jira, Risk Mitigation, Sprint Planning",
-    "AI & Machine Learning": "Pandas, NumPy, Scikit-learn, PyTorch, Chatbot Development",
-    "Data Visualization": "Tableau, PowerBI, Matplotlib",
-    "Tools & Platforms": "Git, Docker, AWS, Figma, Postman, Google Workspace",
+    "AI & Machine Learning": "LLM APIs, Claude AI",
+    "Tools & Platforms": "Git, AWS, Figma, Postman, Google Workspace",
     "Certifications": "AWS Cloud Practitioner, Certified SCRUM Master"
   };
 
