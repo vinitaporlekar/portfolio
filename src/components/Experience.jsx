@@ -42,37 +42,38 @@ const Experience = ({ isVisible }) => {
 
   return (
     <section 
-    id="about"
-    className={`py-24 px-6 bg-[#dcd5e7] transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+    /* FIXED: Changed "Experience" to "experience" (lowercase) to match Header.jsx */
+    id="experience"
+    /* FIXED: Changed color to match your blend and ensured width matches About (max-w-7xl) */
+    className={`py-24 px-6 bg-[#c5bdd1] transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <h2 className="text-5xl md:text-6xl font-serif mb-16 text-slate-900 tracking-tight">
           Experience
         </h2>
         
         <div className="relative space-y-12">
-          {/* Animated Central Line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-900/10 hidden md:block">
+          {/* Vertical Timeline Line - Now aligned to the far left to match Education */}
+          <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-slate-900/10 hidden md:block">
              <div className={`absolute top-0 left-0 w-full bg-slate-900 transition-all duration-[2000ms] ${isVisible ? 'h-full' : 'h-0'}`}></div>
           </div>
 
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className={`relative flex flex-col md:flex-row items-center justify-between transition-all duration-700 delay-[${index * 200}ms] ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+              className={`relative pl-0 md:pl-12 transition-all duration-700 delay-[${index * 200}ms] ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
               }`}
             >
-              {/* Timeline Dot with Pulse */}
-              <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-slate-900 z-20 hidden md:block">
+              {/* Timeline Dot */}
+              <div className="absolute left-0 top-10 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-900 z-20 hidden md:block border-4 border-[#c5bdd1]">
                 <div className="absolute inset-0 rounded-full bg-slate-900 animate-ping opacity-20"></div>
               </div>
 
-              {/* Experience Card */}
-              <div className={`w-full md:w-[45%] ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
+              {/* Experience Card: Made larger (w-full lg:w-4/5) and left-aligned */}
+              <div className="w-full lg:w-4/5">
                 <div className="group relative bg-white/40 backdrop-blur-md border border-white/30 rounded-3xl p-8 hover:bg-white/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
                   
-                  {/* Decorative corner accent */}
                   <div className={`absolute top-0 left-0 w-2 h-0 group-hover:h-full transition-all duration-500 rounded-l-3xl ${exp.color}`}></div>
 
                   <div className="mb-6">

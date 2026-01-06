@@ -17,16 +17,18 @@ const Projects = ({ isVisible }) => {
 
   return (
     <section 
-    id="about"
+    /* FIXED: Changed "Projects" to "projects" (lowercase) to match your Header links */
+    id="projects"
+    /* FIXED: Background color updated to #dcd5e7 to maintain your design flow */
     className={`py-24 px-6 bg-[#dcd5e7] transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
     >
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col mb-20">
+        <div className="flex flex-col mb-20 text-left">
           <div className="flex items-center gap-4 mb-4">
             <span className="h-px w-12 bg-slate-900/30"></span>
             <span className="text-sm font-bold tracking-[0.3em] uppercase text-slate-600">Selected Works</span>
           </div>
-          <h2 className="text-6xl md:text-7xl font-serif text-slate-900">
+          <h2 className="text-6xl md:text-7xl font-serif text-slate-900 tracking-tight">
             Projects
           </h2>
         </div>
@@ -37,11 +39,10 @@ const Projects = ({ isVisible }) => {
               key={index}
               className={`relative flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 items-center`}
             >
-              {/* Left Side: The Metric Showcase (Replaces the Preview/Glow) */}
+              {/* Left Side: The Metric Showcase */}
               <div className="w-full lg:w-1/2 relative">
                 <div className="relative aspect-video bg-white/20 backdrop-blur-sm rounded-[2.5rem] border border-white/40 shadow-sm flex items-center justify-center overflow-hidden">
                   
-                  {/* Clean Typographic Highlight */}
                   <div className="text-center group">
                     <span className="block text-[10px] uppercase tracking-[0.4em] text-slate-500 mb-2 font-bold transition-all group-hover:tracking-[0.6em]">
                       {project.statLabel}
@@ -54,7 +55,6 @@ const Projects = ({ isVisible }) => {
                     </span>
                   </div>
 
-                  {/* Subtle corner detail */}
                   <div className="absolute top-0 right-0 p-8">
                     <div className="w-12 h-12 border-t-2 border-r-2 border-slate-900/10 rounded-tr-3xl"></div>
                   </div>

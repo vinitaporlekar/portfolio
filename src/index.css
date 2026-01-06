@@ -2,26 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 1. SLIDE SNAP LOGIC */
+/* 1. SLIDE SNAP & GLOBAL LOGIC */
 html {
   scroll-behavior: smooth;
+  /* This ensures that when you click a nav link, 
+     the section stops 80px from the top so the Header doesn't cover it */
+  scroll-padding-top: 80px; 
 }
 
 body {
-  /* Enables the "Autoplay Slide" feel */
+  /* The "Mandatory" snap makes it feel like slides */
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
-  background-color: #e9e4f0; /* Starting light color */
+  background-color: #e9e4f0;
+  color: #0f172a; /* slate-900 */
 }
 
 section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  /* Every section fills the screen exactly like a slide */
-  min-height: 100vh; 
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
 /* 2. CORE ANIMATIONS */
@@ -49,7 +53,11 @@ section {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Custom Scrollbar for a "Darker" look to match the blend */
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+/* 4. CUSTOM SCROLLBAR (Matches your Purple Blend) */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -61,4 +69,13 @@ section {
 ::-webkit-scrollbar-thumb {
   background: #ad9dbf;
   border-radius: 10px;
+}
+
+/* 5. Z-INDEX FIXES */
+header {
+  z-index: 100 !important; /* Always on top */
+}
+
+.nav-dots {
+  z-index: 90;
 }

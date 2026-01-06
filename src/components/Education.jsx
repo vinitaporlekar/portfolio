@@ -25,7 +25,7 @@ const Education = ({ isVisible }) => {
     <section 
       id="education"
       // Matching background for the "Sunset" color blend
-      className={`py-24 px-6 bg-[#b7adc8] transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      className={`py-24 px-6 bg-[#cfc6de] transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
     >
       {/* max-w-7xl ensures perfect left-alignment with About/Experience */}
       <div className="max-w-7xl mx-auto">
