@@ -46,7 +46,7 @@ const Contact = ({ isVisible }) => {
         
         <div className="pt-8 border-t border-slate-200">
           <p className="text-slate-500 text-sm">
-            2024 Vinita Porlekar - Made with React and Tailwind
+            2026 Vinita Porlekar - Made with React and Tailwind
           </p>
         </div>
       </div>
