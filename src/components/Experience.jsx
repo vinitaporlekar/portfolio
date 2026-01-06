@@ -7,6 +7,7 @@ const Experience = ({ isVisible }) => {
       company: "Tercera - Hurix Digital",
       location: "Mumbai, India",
       period: "Oct 2023 – Mar 2025",
+      color: "bg-purple-500",
       highlights: [
         "Prioritized features and led product launches of AI & e-learning MVPs with $300K+ budget delivering solutions in record time to clients",
         "Collaborated with designers to improve project's user experience, increasing engagement by 80% which was used by around 100K+ students across 75+ e-learning institutions",
@@ -18,6 +19,7 @@ const Experience = ({ isVisible }) => {
       company: "Jio Platform / Haptik",
       location: "Mumbai, India",
       period: "June 2021 – Sep 2023",
+      color: "bg-blue-400",
       highlights: [
         "Spearheaded getting the product data and feedback from users to iterate and improve chatbot features",
         "Delivered chatbot solutions, boosting support efficiency by 80%, reducing the mean time to resolution",
@@ -29,6 +31,7 @@ const Experience = ({ isVisible }) => {
       company: "Planet Next Gen",
       location: "Mumbai, India",
       period: "Nov 2019 – June 2021",
+      color: "bg-rose-400",
       highlights: [
         "Led automation projects reducing development time by 55% and training time by 50%",
         "Developed training and reporting tools improving decision-making by 70%",
@@ -39,43 +42,56 @@ const Experience = ({ isVisible }) => {
 
   return (
     <section 
-      id="experience"
-      className={`py-20 px-6 bg-slate-50 transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+    id="about"
+    className={`py-24 px-6 bg-[#dcd5e7] transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
     >
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-slate-900">Experience</h2>
+        <h2 className="text-5xl md:text-6xl font-serif mb-16 text-slate-900 tracking-tight">
+          Experience
+        </h2>
         
-        <div className="space-y-12">
+        <div className="relative space-y-12">
+          {/* Animated Central Line */}
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-900/10 hidden md:block">
+             <div className={`absolute top-0 left-0 w-full bg-slate-900 transition-all duration-[2000ms] ${isVisible ? 'h-full' : 'h-0'}`}></div>
+          </div>
+
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="border-l-4 border-amber-500 pl-8 relative"
+              className={`relative flex flex-col md:flex-row items-center justify-between transition-all duration-700 delay-[${index * 200}ms] ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+              }`}
             >
-              <div className="absolute -left-2.5 top-0 w-5 h-5 bg-amber-500 rounded-full border-4 border-slate-50" />
-              
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-1">
-                    {exp.title}
-                  </h3>
-                  <p className="text-lg text-amber-600 font-medium">
-                    {exp.company}
-                  </p>
-                  <div className="flex flex-wrap gap-3 text-sm text-slate-600 mt-2">
-                    <span>{exp.period}</span>
-                    <span>•</span>
-                    <span>{exp.location}</span>
+              {/* Timeline Dot with Pulse */}
+              <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-slate-900 z-20 hidden md:block">
+                <div className="absolute inset-0 rounded-full bg-slate-900 animate-ping opacity-20"></div>
+              </div>
+
+              {/* Experience Card */}
+              <div className={`w-full md:w-[45%] ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
+                <div className="group relative bg-white/40 backdrop-blur-md border border-white/30 rounded-3xl p-8 hover:bg-white/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
+                  
+                  {/* Decorative corner accent */}
+                  <div className={`absolute top-0 left-0 w-2 h-0 group-hover:h-full transition-all duration-500 rounded-l-3xl ${exp.color}`}></div>
+
+                  <div className="mb-6">
+                    <span className="text-sm font-bold text-slate-500 uppercase tracking-widest">{exp.period}</span>
+                    <h3 className="text-2xl font-bold text-slate-900 mt-1 group-hover:text-purple-700 transition-colors">
+                      {exp.title}
+                    </h3>
+                    <p className="text-lg font-medium text-slate-700">{exp.company} • {exp.location}</p>
                   </div>
+                  
+                  <ul className="space-y-4 text-slate-800">
+                    {exp.highlights.map((highlight, hIndex) => (
+                      <li key={hIndex} className="flex gap-3 text-sm leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
+                        <span className="text-slate-900 font-bold">•</span>
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                
-                <ul className="space-y-2 text-slate-700">
-                  {exp.highlights.map((highlight, hIndex) => (
-                    <li key={hIndex} className="flex gap-3">
-                      <span className="text-amber-500 mt-1 font-bold">•</span>
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
           ))}
