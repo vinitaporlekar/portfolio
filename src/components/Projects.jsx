@@ -12,9 +12,23 @@ const Projects = ({ isVisible }) => {
       role: "Product Owner",
       metrics: "80% Efficiency Increase",
       statLabel: "Impact Metric"
+    
+  },
+  {
+      title: "AI-Powered Research Paper Organizer",
+      company: "Personal Project",
+      period: "Jan 2025",
+      description: "Built a web app using LLMs to extract, summarize, tag, and semantically search research papers (PDFs), enabling Q&A across a personal knowledge base.",
+      tags: ["AI/ML", "LLMs", "Full-Stack", "Semantic Search", "PDF Processing"],
+      role: "Full-Stack Developer",
+      metrics: "100% Automated",
+      statLabel: "Paper Processing",
+      links: {
+        backend: "https://github.com/vinitaporlekar/research-paper-ai-api",
+        frontend: "https://github.com/vinitaporlekar/research-paper-ai-ui"
+      }
     }
   ];
-
   return (
     <section 
     /* FIXED: Changed "Projects" to "projects" (lowercase) to match your Header links */
@@ -85,6 +99,20 @@ const Projects = ({ isVisible }) => {
                     </span>
                   ))}
                 </div>
+                {/* Action Button */}
+                {project.links && (
+                  <div className="flex pt-6">
+                    <a
+                      href={project.links.backend}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-6 py-3 bg-slate-900 text-white text-sm font-bold uppercase tracking-wide rounded-xl hover:bg-slate-800 transition-colors"
+                    >
+                      <ExternalLink size={16} />
+                      Source Code
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           ))}
