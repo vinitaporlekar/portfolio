@@ -9,9 +9,10 @@ const Experience = ({ isVisible }) => {
       period: "Oct 2023 – Mar 2025",
       color: "bg-purple-500",
       highlights: [
-        "Prioritized features and led product launches of AI & e-learning MVPs with $300K+ budget delivering solutions in record time to clients",
-        "Collaborated with designers to improve project's user experience, increasing engagement by 80% which was used by around 100K+ students across 75+ e-learning institutions",
-        "Co-ordinated agile sprints with various stakeholders for getting the project delivered within a timely fashion"
+        "Built AI-powered e-learning MVPs using Python, JavaScript, REST APIs, and automated testing",
+        "Developed React.js components and API integrations, boosting user engagement by 80%",
+        "Deployed AI features via CI/CD pipelines to production cloud environments",
+        "Coordinated Agile sprints with engineering teams to deliver scalable features on schedule"
       ]
     },
     {
@@ -21,9 +22,10 @@ const Experience = ({ isVisible }) => {
       period: "June 2021 – Sep 2023",
       color: "bg-blue-400",
       highlights: [
-        "Spearheaded getting the product data and feedback from users to iterate and improve chatbot features",
-        "Delivered chatbot solutions, boosting support efficiency by 80%, reducing the mean time to resolution",
-        "Partnered with UX and engineering teams to enhance AI assistants, raising engagement 75-80%"
+        "Analyzed user data to enhance AI chatbot workflows and performance",
+        "Built chatbot solutions using Python automation and APIs", 
+        "Implemented React.js UI components, achieving 75–80% engagement increase",
+        "Collaborated on Figma designs, achieving a 75–80% increase in user engagement"
       ]
     },
     {
@@ -33,9 +35,8 @@ const Experience = ({ isVisible }) => {
       period: "Nov 2019 – June 2021",
       color: "bg-rose-400",
       highlights: [
-        "Led automation projects reducing development time by 55% and training time by 50%",
-        "Developed training and reporting tools improving decision-making by 70%",
-        "Managed multiple projects simultaneously with strong organizational skills"
+      "Built Python automation tools, reducing development time by 55% and training time by 50%",
+      "Developed reporting dashboards, improving decision-making efficiency by 70%"
       ]
     }
   ];
