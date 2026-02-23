@@ -3,8 +3,8 @@ import { FileText, ExternalLink } from 'lucide-react';
 
 const ResumeModal = ({ setShowResumeModal }) => {
   const handleViewResume = () => {
-    window.open('/Vinita_Porlekar_Resume.pdf', '_blank');
-  };
+    window.open(`${window.location.origin}/Vinita_Porlekar.pdf`, '_blank');
+};
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fadeIn">
