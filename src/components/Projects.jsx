@@ -3,18 +3,20 @@ import { ExternalLink, Target } from 'lucide-react';
 
 const Projects = ({ isVisible }) => {
   const projects = [
+     {
+      title: "Legal Contract Analyzer",
+      company: "Personal Project",
+      period: "Mar 2026",
+      description: "Built a RAG-powered legal contract analyzer that extracts, chunks, and embeds contract text using Gemini embeddings and ChromaDB. Features cited Q&A with cross-encoder reranking and automatic risk detection across 9 risk categories, with a React frontend.",
+      tags: ["RAG", "LLMs", "Gemini", "ChromaDB", "FastAPI", "React", "NLP"],
+      role: "Full-Stack Developer",
+      metrics: "9 Risk Categories",
+      statLabel: "Auto Detected",
+      links: {
+        backend: "https://github.com/vinitaporlekar/legal-contract-analyzer"
+      }
+    },
     {
-      title: "AI-Powered E-Learning Assistant",
-      company: "Hurix Digital",
-      period: "Oct 2023 – Mar 2025",
-      description: "Built an AI-powered e-learning assistant that summarized notes and generated quizzes, improving study efficiency by 65% for 40+ students using rule-based NLP techniques.",
-      tags: ["AI/ML", "NLP", "Product Development", "E-Learning"],
-      role: "Product Owner",
-      metrics: "80% Efficiency Increase",
-      statLabel: "Impact Metric"
-    
-  },
-  {
       title: "AI-Powered Research Paper Organizer",
       company: "Personal Project",
       period: "Jan 2025",
@@ -27,7 +29,18 @@ const Projects = ({ isVisible }) => {
         backend: "https://github.com/vinitaporlekar/research-paper-ai-api",
         frontend: "https://github.com/vinitaporlekar/research-paper-ai-ui"
       }
-    }
+    },
+  
+    {
+      title: "AI-Powered E-Learning Assistant",
+      company: "Hurix Digital",
+      period: "Oct 2023 – Mar 2025",
+      description: "Built an AI-powered e-learning assistant that summarized notes and generated quizzes, improving study efficiency by 65% for 40+ students using rule-based NLP techniques.",
+      tags: ["AI/ML", "NLP", "Product Development", "E-Learning"],
+      role: "Product Owner",
+      metrics: "80% Efficiency Increase",
+      statLabel: "Impact Metric"
+  },
   ];
   return (
     <section 
